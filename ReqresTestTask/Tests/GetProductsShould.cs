@@ -29,7 +29,7 @@ namespace ReqresTestTask
             var response = Client.Execute(request);
             ProductsResponseBody responseBody = JsonConvert.DeserializeObject<ProductsResponseBody>(response.Content);
             
-            Assert.That(responseBody.data, Has.Exactly(responseBody.data.Length).Matches<Data>(
+            Assert.That(responseBody.data, Has.Exactly(responseBody.data.Length).Matches<ProductsResponseBody.Data>(
                 d => d.year >= 2000), "Not all products of year 2000 or later!");
 
         }
